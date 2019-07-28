@@ -1,0 +1,31 @@
+
+  <form role="form" (submit)="addProject()">
+    <div class="form-group">
+      <label for="project">
+        Project: <input type="text"
+                        class="form-control" id="project" name="project" [(ngModel)]="project" />
+
+      </label>
+    </div>
+
+    <div class="form-group">
+
+      <input type="checkbox" [(ngModel)]="setStartEnd"> Set Start and End Date
+      <input type="date" id="startDate" name="startDate" ng-model="startDate" />
+      <input type="date" id="endDate" name="endDate" ng-model="endDate" />
+    </div>
+    <div class="form-group">
+      Priority: <input #ramSelector name="ram" type="range" min="0" max="30" [(ngModel)]="priority" (ngModelChange)="setRam($event)" value="0">
+
+    </div>
+    <div class="form-group">
+      <label for="manager">
+        Manager: <input id="typeahead-basic" type="text" (selectItem)="selectedItem($event)" [ngbTypeahead]="search" [resultFormatter]="formatter" [inputFormatter]="formatter"/>
+
+      </label>
+      
+    </div>
+    
+      <button type="submit" class="btn btn-primary">{{addUpdateLabel}}</button>
+      <button type="button" class="btn" id="reset" (click)="reset()">Reset</button>
+  </form>

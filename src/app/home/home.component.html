@@ -1,0 +1,20 @@
+<ul>
+  <li>
+    <button type="button" id="getAllBooks" (click)="getAllBooks()">Get All Books</button>
+  </li>
+
+</ul>
+<table>
+
+  <tr *ngFor="let book  of allBooks.books">
+    <td>{{book.id}}</td>
+    <td>{{book.title}}</td>
+  </tr>
+
+</table>
+<input type="text" id="booktitle" [(ngModel)]="booktitle" /> <input type="text" id="bookid" [(ngModel)]="bookid" />
+<button type="button" id="putBook" (click)="putBook()">PutBook</button>
+<button type="button" id="postBook" (click)="postBook()">PostBook</button>
+<button type="button" id="deleteBook" (click)="deleteBook()">DeleteBook</button>
+<button type="button" id="getBook" (click)="getBook()">GetBook</button>
+<button type="button" id="postSubject" (click)="postSubject()">PostSubject</button>

@@ -1,0 +1,46 @@
+<form role="form" (submit)="addUser()">
+  <div class="form-group">
+    <label for="firstName">
+      First Name: <input type="text"
+                         class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName" />
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="firstName">
+      Last Name: <input type="text"
+                        class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName" />
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="firstName">
+      EmployeeID:<input type="text"
+                        class="form-control" id="employeeID" name="firstName" [(ngModel)]="employeeID" />
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">{{addUpdateLabel}}</button>
+  <button type="button" class="btn" id="reset" (click)="reset()">Reset</button>
+</form>
+<input [(ngModel)]="searchText" placeholder="search..."> Sort: <button type="button" class="btn" id="sortByFirstName" (click)="sortByField('firstName')" >FirstName</button><button type="button" class="btn" id="sortByLastName" (click)="sortByField('lastName')">LastName</button><button type="button" class="btn" id="sortByEmployeeID" (click)="sortByField('employeeID')">EmployeeID</button>
+<table class="table table-striped">
+  <tbody>
+    
+    <tr *ngFor="let user of users | filter : searchText">
+       <td>
+          <div class="form-group">
+            <label>{{ user.firstName }}</label>
+          </div>
+          <div class="form-group">
+            <label>{{ user.lastName }}</label>
+          </div>
+          <div class="form-group">
+            <label>{{ user.employeeID }}</label>
+          </div>
+        </td>
+        <td>
+          <button type="button" class="btn" id="edit" (click)="edit(user)">Edit</button>
+          <button type="button" class="btn" id="delete" (click)="delete(user.employeeID)">Delete</button>
+        </td>
+      
+    </tr>
+  </tbody>
+</table>
